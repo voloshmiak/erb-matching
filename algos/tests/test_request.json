@@ -1,0 +1,56 @@
+{
+    "orders": [
+        {
+            "order_id": "ord-001",
+            "station_to_id": "st-odesa",
+            "wagon_type": "gondola",
+            "quantity": 2,
+            "desired_date": "2026-04-10"
+        },
+        {
+            "order_id": "ord-002",
+            "station_to_id": "st-kryvyi-rih",
+            "wagon_type": "gondola",
+            "quantity": 1,
+            "desired_date": "2026-04-08"
+        },
+        {
+            "order_id": "ord-003",
+            "station_to_id": "st-mостиська",
+            "wagon_type": "grain_hopper",
+            "quantity": 2,
+            "desired_date": "2026-04-09"
+        }
+    ],
+    "wagons": [
+        {"wagon_id": "w-01", "wagon_number": "GND-0001", "wagon_type": "gondola", "current_station_id": "st-lviv", "idle_days": 1.5},
+        {"wagon_id": "w-02", "wagon_number": "GND-0002", "wagon_type": "gondola", "current_station_id": "st-znamianka", "idle_days": 0.5},
+        {"wagon_id": "w-03", "wagon_number": "GND-0003", "wagon_type": "gondola", "current_station_id": "st-zaporizhzhia", "idle_days": 2.0},
+        {"wagon_id": "w-04", "wagon_number": "GRN-0001", "wagon_type": "grain_hopper", "current_station_id": "st-odesa", "idle_days": 3.0},
+        {"wagon_id": "w-05", "wagon_number": "GRN-0002", "wagon_type": "grain_hopper", "current_station_id": "st-vinnytsia", "idle_days": 1.0}
+    ],
+    "stations": [
+        {"station_id": "st-lviv", "name": "Львів-Клепарів", "type": "sorting", "lat": 49.85, "lng": 23.98},
+        {"station_id": "st-znamianka", "name": "Знам'янка", "type": "sorting", "lat": 48.71, "lng": 32.69},
+        {"station_id": "st-odesa", "name": "Одеса-Порт", "type": "port", "lat": 46.49, "lng": 30.75},
+        {"station_id": "st-mостиська", "name": "Мостиська", "type": "border", "lat": 49.82, "lng": 23.03},
+        {"station_id": "st-kryvyi-rih", "name": "Кривий Ріг", "type": "freight", "lat": 47.88, "lng": 33.38},
+        {"station_id": "st-zaporizhzhia", "name": "Запоріжжя", "type": "freight", "lat": 47.80, "lng": 35.19},
+        {"station_id": "st-vinnytsia", "name": "Вінниця", "type": "freight", "lat": 49.24, "lng": 28.51},
+        {"station_id": "st-koziatyn", "name": "Козятин", "type": "freight", "lat": 49.71, "lng": 28.83},
+        {"station_id": "st-zhmerynka", "name": "Жмеринка", "type": "freight", "lat": 49.03, "lng": 28.11}
+    ],
+    "edges": [
+        {"from_station_id": "st-lviv", "to_station_id": "st-mостиська", "distance_km": 95},
+        {"from_station_id": "st-lviv", "to_station_id": "st-koziatyn", "distance_km": 370},
+        {"from_station_id": "st-koziatyn", "to_station_id": "st-vinnytsia", "distance_km": 65},
+        {"from_station_id": "st-koziatyn", "to_station_id": "st-zhmerynka", "distance_km": 80},
+        {"from_station_id": "st-zhmerynka", "to_station_id": "st-odesa", "distance_km": 450},
+        {"from_station_id": "st-znamianka", "to_station_id": "st-odesa", "distance_km": 340},
+        {"from_station_id": "st-znamianka", "to_station_id": "st-kryvyi-rih", "distance_km": 150},
+        {"from_station_id": "st-znamianka", "to_station_id": "st-zaporizhzhia", "distance_km": 280},
+        {"from_station_id": "st-kryvyi-rih", "to_station_id": "st-zaporizhzhia", "distance_km": 200},
+        {"from_station_id": "st-vinnytsia", "to_station_id": "st-zhmerynka", "distance_km": 90},
+        {"from_station_id": "st-znamianka", "to_station_id": "st-koziatyn", "distance_km": 290}
+    ]
+}
