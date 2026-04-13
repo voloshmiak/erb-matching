@@ -8,6 +8,8 @@ class OrderIn(BaseModel):
     wagon_type: str
     quantity: int
     desired_date: str
+    desired_date_hour: int = 0
+    cargo: str = ""
 
 
 class WagonIn(BaseModel):
@@ -24,6 +26,8 @@ class StationIn(BaseModel):
     type: str
     lat: float
     lng: float
+    role: str = ""
+    cargo: list[str] = []
 
 
 class EdgeIn(BaseModel):
