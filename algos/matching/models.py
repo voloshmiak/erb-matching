@@ -36,11 +36,18 @@ class EdgeIn(BaseModel):
     distance_km: float
 
 
+class LocomotiveIn(BaseModel):
+    """Locomotive position from backend. Optional — backward compatible."""
+    loco_id: str
+    current_station_id: str
+
+
 class MatchRequest(BaseModel):
     orders: list[OrderIn]
     wagons: list[WagonIn]
     stations: list[StationIn]
     edges: list[EdgeIn]
+    locomotives: list[LocomotiveIn] = []  # optional — if empty, no loco filter
 
 
 class Assignment(BaseModel):
@@ -50,6 +57,18 @@ class Assignment(BaseModel):
     route: list[str]
     empty_run_km: float
     cost_empty_run: float
+    estimated_hours: float
+
+
+class TrainGroup(BaseModel):
+    """Group of assignments forming one train. Backend dispatches this as one unit."""
+    train_id: str
+    source_station_id: str
+    dest_station_id: str
+    wagon_ids: list[str]
+    loco_id: str = ""           # which loco should haul (empty = backend decides)
+    loco_reposition_km: float = 0.0  # km loco travels empty to reach source
+    distance_km: float
     estimated_hours: float
 
 
@@ -72,5 +91,6 @@ class Metrics(BaseModel):
 
 class MatchResponse(BaseModel):
     assignments: list[Assignment]
+    train_groups: list[TrainGroup] = []  # grouped assignments — backend dispatches these
     unmatched_orders: list[UnmatchedOrder]
     metrics: Metrics
